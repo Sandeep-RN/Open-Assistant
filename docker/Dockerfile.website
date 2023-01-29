@@ -1,11 +1,11 @@
 # Note: node:16.18.0 works most reliably when using different platforms (namely
 # Mac M1) and avoids recent Prisma docker bugs that lead to segfaults.
 
-# Install dependencies only when needed
+# Install dependencies only when needed.
 FROM node:16.18.0 AS deps
 WORKDIR /app
 
-# Install dependencies based on the preferred package manager
+# Install dependencies based on the preferred package manager.
 COPY ./website/package.json ./website/package-lock.json ./
 RUN \
   if [ -f package-lock.json ]; then npm ci; \
